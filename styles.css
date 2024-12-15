@@ -1,0 +1,202 @@
+/* Importing Google Fonts for Modern Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF; /* Pure white background */
+    color: #000000; /* Black text for contrast */
+}
+
+/* Header */
+header {
+    background: #000000; /* Black header background */
+    color: #FFFFFF; /* White text */
+    padding: 20px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    color: #FFFFFF; /* White text */
+    text-decoration: none;
+    margin: 0 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header nav a:hover {
+    color: #CCCCCC; /* Light grey on hover */
+    transform: scale(1.1);
+}
+
+/* Main Container */
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+/* Centered Content */
+.centered-content {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.logo-image {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Products Grid */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.product {
+    background: #FFFFFF; /* Pure white cards */
+    color: #000000; /* Black text */
+    border: 1px solid #000000; /* Black border */
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33% - 40px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #000000; /* Black border for images */
+}
+
+.product h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+    color: #000000; /* Black text */
+}
+
+.product p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.product a {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #000000; /* Black button */
+    color: #FFFFFF; /* White text */
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.product a:hover {
+    background: #333333; /* Dark grey on hover */
+    transform: scale(1.05);
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background: #000000; /* Black footer */
+    color: #FFFFFF; /* White text */
+    text-align: center;
+    padding: 20px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* YouTube Video Section */
+/* YouTube Video Section */
+.youtube-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Add spacing between video and description */
+    padding: 60px; /* Increase padding around the section */
+    background: #F5F5F5; /* Light grey background to distinguish the section */
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.youtube-video .video-container {
+    border: 2px solid #000000; /* Black border for the video */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    overflow: hidden;
+    max-width: 600px; /* Restrict video width for better layout */
+    aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
+}
+
+.youtube-video .video-container iframe {
+    border-radius: 10px;
+    width: 100%; /* Responsive width */
+    height: 100%; /* Responsive height */
+}
+
+.youtube-video .description {
+    max-width: 500px; /* Restrict width for readability */
+    padding: 30px; /* Add padding inside the description box */
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    color: #333333; /* Slightly lighter black for text */
+    line-height: 1.8; /* Increase line height for better spacing */
+    background: #FFFFFF;
+    border: 1px solid #000000; /* Add a matching black border */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+    /* General button styles */
+    .product button {
+        background-color: #000; /* Black background */
+        color: #fff; /* White text */
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Button hover effect */
+    .product button:hover {
+        background-color: #333; /* Darker black on hover */
+        transform: translateY(-3px); /* Lift effect */
+    }
+
+    /* Button active state */
+    .product button:active {
+        background-color: #555; /* Even darker black when pressed */
+        transform: translateY(0); /* Remove lift on click */
+    }
+
+    /* Button focus outline */
+    .product button:focus {
+        outline: 2px solid #f39c12; /* Gold focus outline */
+        outline-offset: 2px;
+    }
+
