@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Crado</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        /* Card container */
+        .card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        /* Heading styles */
+        .card h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Input styles */
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Buttons */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #000;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Remember me and cancel */
+        .actions {
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .actions input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .cancel-btn {
+            background-color: #f44336;
+            color: white;
+            width: 30%;
+        }
+
+        /* Forgot password link */
+        .forgot-password {
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Crado</h1>
+        <h2>Log In or Register</h2>
+        
+        <form method="post" action="login.php">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            
+            <button type="submit">Login</button>
+            <button type="button" onclick="window.location.href='signup.php'">Register</button>
+            
+            <div class="actions">
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <button type="button" class="cancel-btn" onclick="window.location.href='index.php'">Cancel</button>
+            </div>
+
+            <div class="forgot-password">
+                <a href="forgot_password.php">Forgot password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
