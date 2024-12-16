@@ -43,6 +43,36 @@
             font-size: 18px;
             color: #666;
         }
+
+        .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .checkout-btn {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        .checkout-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .checkout-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -61,25 +91,39 @@
 <div class="container">
     <h1>Your Cart</h1>
     <div id="cart-items"></div>
+    <div id="total-price" class="total-price"></div>
+    <button id="checkout-btn" class="checkout-btn">Check Out</button>
+    <div id="checkout-message" class="checkout-message"></div>
 </div>
 
 <script>
     // Function to display cart items from Local Storage
     document.addEventListener("DOMContentLoaded", () => {
         const cartContainer = document.getElementById("cart-items");
+        const totalPriceContainer = document.getElementById("total-price");
+        const checkoutMessageContainer = document.getElementById("checkout-message");
+        const checkoutButton = document.getElementById("checkout-btn");
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
         function displayCart() {
             cartContainer.innerHTML = ""; // Clear the container
+            let totalPrice = 0; // Initialize total price
 
             if (cart.length === 0) {
                 cartContainer.innerHTML = "<p class='cart-empty'>Your cart is empty. Add products from the shop to see them here.</p>";
+                totalPriceContainer.innerHTML = ""; // Clear total price if cart is empty
+                checkoutButton.style.display = "none"; // Hide checkout button
                 return;
             }
 
             cart.forEach((item, index) => {
                 const cartItem = document.createElement("div");
                 cartItem.classList.add("cart-item");
+
+                // Extract the numeric price and add to total
+                const price = parseFloat(item.price.replace(/[^\d.]/g, ""));
+                totalPrice += price;
+
                 cartItem.innerHTML = `
                     <img src="${item.image}" alt="${item.name}">
                     <div>
@@ -90,6 +134,10 @@
                 `;
                 cartContainer.appendChild(cartItem);
             });
+
+            // Display total price
+            totalPriceContainer.innerHTML = `Total Price: €${totalPrice.toFixed(2)}`;
+            checkoutButton.style.display = "block"; // Show checkout button
         }
 
         // Function to remove an item from the cart
@@ -98,6 +146,26 @@
             localStorage.setItem("cart", JSON.stringify(cart)); // Update Local Storage
             displayCart(); // Re-render cart
         };
+
+        // Function to handle checkout
+        checkoutButton.addEventListener("click", () => {
+            if (cart.length === 0) return;
+
+            let itemList = cart.map(item => `- ${item.name} (${item.price})`).join("<br>");
+            let totalPrice = cart.reduce((sum, item) => sum + parseFloat(item.price.replace(/[^\d.]/g, "")), 0);
+
+            checkoutMessageContainer.innerHTML = `
+                <p>You have been checked out!</p>
+                <p>Your Items:</p>
+                <p>${itemList}</p>
+                <p><strong>Total: €${totalPrice.toFixed(2)}</strong></p>
+            `;
+
+            // Clear the cart after checkout
+            localStorage.removeItem("cart");
+            cart = [];
+            displayCart();
+        });
 
         displayCart(); // Initial rendering of the cart
     });
